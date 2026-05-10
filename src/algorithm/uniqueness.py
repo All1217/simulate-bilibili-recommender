@@ -10,7 +10,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-def calculate_uniqueness_scores(danmaku_texts):
+def calUniquenessScores(danmaku_texts):
     """
     计算一批弹幕中每条弹幕的独特性得分
 
@@ -32,7 +32,6 @@ def calculate_uniqueness_scores(danmaku_texts):
     Notes:
         - 若输入为空列表，返回空列表
         - 若只有 1 条弹幕，独特性直接返回 [1.0]（无可比较对象，视为完全独特）
-        - 依赖 scikit-learn，请确保已安装：pip install scikit-learn
     """
     n = len(danmaku_texts)
     if n == 0:
@@ -47,21 +46,16 @@ def calculate_uniqueness_scores(danmaku_texts):
         lowercase=False      # 中文无需小写转换
     )
     tfidf_matrix = vectorizer.fit_transform(danmaku_texts)
-
     # 2. 计算所有弹幕两两之间的余弦相似度矩阵
     similarity_matrix = cosine_similarity(tfidf_matrix)
-
     # 3. 对每条弹幕，取与其他弹幕的最大相似度（排除自身，将对角线置 0）
     np.fill_diagonal(similarity_matrix, 0)
     max_similarities = np.max(similarity_matrix, axis=1)
-
     # 4. 计算独特性得分：U(d) = 1 / (θ_max + ε)
     epsilon = 1e-6
     uniqueness_scores = 1.0 / (max_similarities + epsilon)
-
     # 5. 归一化到 [0, 1] 区间（将最大值映射为 1）
     max_score = np.max(uniqueness_scores)
     if max_score > 0:
         uniqueness_scores = uniqueness_scores / max_score
-
     return uniqueness_scores.tolist()

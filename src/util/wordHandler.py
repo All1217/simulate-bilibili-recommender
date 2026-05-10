@@ -115,24 +115,3 @@ def get_segmenter(use_stopwords=True, use_pos_filter=False):
     if _segmenter is None:
         _segmenter = WordSegmenter(use_stopwords, use_pos_filter)
     return _segmenter
-
-
-# 测试代码
-if __name__ == "__main__":
-    segmenter = get_segmenter()
-    test_cases = [
-        "前方高能预警！这个视频太精彩了2333",
-        "up主牛逼，三连了！",
-        "这个显卡的性能真的很强，想入手",
-        "哈哈哈 笑死我了 这操作太秀了",
-        "考研党路过，数学真的好难QAQ"
-    ]
-    print("=== 分词测试 ===")
-    for text in test_cases:
-        print(f"\n原文: {text}")
-        # 普通分词
-        words = segmenter.segment(text)
-        print(f"分词: {'/'.join(words)}")
-        # 关键词提取
-        keywords = segmenter.extractKeywords(text, topK=3)
-        print(f"关键词: {keywords}")
