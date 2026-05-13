@@ -201,7 +201,6 @@ def calInterestTags(uid, use_time_decay=True, normalize=False, preload=None):
                     time_factor = 0.2
             for tag_name, match_count in tag_matches.items():
                 weights[tag_name] += match_count * time_factor
-
     result = {tag: w for tag, w in weights.items() if w > 0}
     if not result:
         return {}

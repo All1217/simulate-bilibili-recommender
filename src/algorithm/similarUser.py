@@ -125,14 +125,3 @@ def startSimilar(vid, target_uid, limit=5):
         [1001, 1002, 1003, ...]  # 按相似度降序的用户ID列表
     """
     return findSimilarUsers(target_uid, vid, top_n=limit, min_danmaku=1)
-
-
-if __name__ == "__main__":
-    test_vid = 35
-    test_uid = 123123123
-
-    print(f"正在查找与用户 {test_uid} 相似的用户（视频 {test_vid}）...")
-    similar_uids = startSimilar(test_vid, test_uid, limit=5)
-
-    print(f"\n【相似用户ID列表】")
-    print(similar_uids)

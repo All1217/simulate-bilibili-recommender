@@ -7,7 +7,7 @@
 from src.util.jsonHandler import loadJson
 from src.util.database import mysql_cursor
 from src.util.wordHandler import get_segmenter
-from src.algorithm.uniqueness import calculate_uniqueness_scores
+from src.algorithm.uniqueness import calUniquenessScores
 import numpy as np
 import jieba.analyse
 from collections import defaultdict
@@ -31,10 +31,8 @@ def _countProfessionalWords(words):
 def calDanmuScore(text, words, video_context, uniqueness_score=None):
     if not text or not words:
         return 0.0
-
     if uniqueness_score is None:
         uniqueness_score = 1.0
-
     score = 0.0
 
     # 1. 文本长度（20%）
@@ -118,7 +116,6 @@ def calQualityStats(uid, preload=None):
     danmakus = loadDanmu(uid, preload)
     if not danmakus:
         return [], {}
-
     # ===== 分词并按 vid 分组 =====
     vid_groups = defaultdict(list)
     for idx, danmaku in enumerate(danmakus):
@@ -127,15 +124,13 @@ def calQualityStats(uid, preload=None):
         danmaku['_words'] = words
         danmaku['_clean_text'] = ' '.join(words)
         vid_groups[danmaku['vid']].append(idx)
-
     # ===== 按视频分组计算独特性得分 =====
     uniqueness_map = {}
     for vid, indices in vid_groups.items():
         group_texts = [danmakus[i]['_clean_text'] for i in indices]
-        group_scores = calculate_uniqueness_scores(group_texts)
+        group_scores = calUniquenessScores(group_texts)
         for i, score in zip(indices, group_scores):
             uniqueness_map[i] = score
-
     # ===== 逐条评分与统计 =====
     scores = []
     stats = {

@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b0d85de-7887-4373-ac9b-cbc008e912e5" name="Changes" comment="2026/4/4 更新文档">
-      <change afterPath="$PROJECT_DIR$/Assets/sql.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/algorithm/uniqueness.py" afterDir="false" />
+    <list default="true" id="7b0d85de-7887-4373-ac9b-cbc008e912e5" name="Changes" comment="缩减代码量">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm/behaviorTag.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/behaviorTag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm/danmuScore.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm/interestTag.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/interestTag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm/qualityTag.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/qualityTag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/qualityTagConstant.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/profileBuilder.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/profileBuilder.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +32,16 @@
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;git@github.com:All1217/AniLink-AlgorithmEngine.git&quot;,
     &quot;accountId&quot;: &quot;aaf68fcf-e508-48ac-9dcd-b76ca62afffa&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;All1217&quot;,
+    &quot;repository&quot;: &quot;AniLink-AlgorithmEngine&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -50,48 +52,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.behaviorAnalyzer.executor": "Run",
-    "Python.behaviorTag.executor": "Run",
-    "Python.danmuScore.executor": "Run",
-    "Python.database.executor": "Run",
-    "Python.filterUserIdsByTags.executor": "Run",
-    "Python.interestTag.executor": "Run",
-    "Python.jsonHandler.executor": "Run",
-    "Python.llmClient.executor": "Run",
-    "Python.main (1).executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.printStructure (1).executor": "Run",
-    "Python.printStructure.executor": "Run",
-    "Python.print_project_structure (1).executor": "Run",
-    "Python.print_project_structure.executor": "Run",
-    "Python.profileBuilder.executor": "Run",
-    "Python.qualityAnalyzer.executor": "Run",
-    "Python.qualityTag.executor": "Run",
-    "Python.similarUser.executor": "Run",
-    "Python.stopwords.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.testElasticsearch.executor": "Run",
-    "Python.testElasticsearchVector.executor": "Run",
-    "Python.testRedis.executor": "Run",
-    "Python.testRedisVector.executor": "Run",
-    "Python.testScanDanmu.executor": "Run",
-    "Python.testVectorModel.executor": "Run",
-    "Python.vectorization.executor": "Run",
-    "Python.wordHandler.executor": "Run",
-    "Python.word_segmentation.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Program files/python-projects/AniLink-AlgorithmEngine/Assets",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.behaviorAnalyzer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.behaviorTag.executor&quot;: &quot;Run&quot;,
+    &quot;Python.danmuScore.executor&quot;: &quot;Run&quot;,
+    &quot;Python.database.executor&quot;: &quot;Run&quot;,
+    &quot;Python.filterUserIdsByTags.executor&quot;: &quot;Run&quot;,
+    &quot;Python.interestTag.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jsonHandler.executor&quot;: &quot;Run&quot;,
+    &quot;Python.llmClient.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.printStructure (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.printStructure.executor&quot;: &quot;Run&quot;,
+    &quot;Python.print_project_structure (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.print_project_structure.executor&quot;: &quot;Run&quot;,
+    &quot;Python.profileBuilder.executor&quot;: &quot;Run&quot;,
+    &quot;Python.qualityAnalyzer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.qualityTag.executor&quot;: &quot;Run&quot;,
+    &quot;Python.similarUser.executor&quot;: &quot;Run&quot;,
+    &quot;Python.stopwords.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testElasticsearch.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testElasticsearchVector.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testRedis.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testRedisVector.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testScanDanmu.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testVectorModel.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vectorization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wordHandler.executor&quot;: &quot;Run&quot;,
+    &quot;Python.word_segmentation.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Program files/python-projects/AniLink-AlgorithmEngine/Assets&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Program files\python-projects\AniLink-AlgorithmEngine\Assets" />
@@ -106,7 +109,7 @@
       <recent name="E:\Program files\python-projects\recommendation-algorithm\src\algorithm-module" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (1)">
+  <component name="RunManager" selected="Python.main3">
     <configuration name="llmClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="algorithm-engine" />
       <option name="ENV_FILES" value="" />
@@ -159,6 +162,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="1" value="sk-6b26dc4ab1204cf2856c7ce2a6256a44" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -166,7 +170,30 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\Program files\python-projects\recommendation-algorithm\src\main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../recommendation-algorithm/src/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="algorithm-engine" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DASHSCOPE_API_KEY" value="sk-6b26dc4ab1204cf2856c7ce2a6256a44" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -244,16 +271,17 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.llmClient" />
       <item itemvalue="Python.main (1)" />
+      <item itemvalue="Python.main3" />
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.printStructure" />
       <item itemvalue="Python.testVectorModel" />
       <item itemvalue="Python.vectorization" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.main3" />
         <item itemvalue="Python.vectorization" />
         <item itemvalue="Python.llmClient" />
         <item itemvalue="Python.testVectorModel" />
@@ -342,7 +370,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775297511574</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="采用预加载数据减少数据库IO；精简了代码；完善了计算质量标签时的内容独特性维度计算">
+      <option name="closed" value="true" />
+      <created>1777197944237</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1777197944237</updated>
+    </task>
+    <task id="LOCAL-00010" summary="缩减代码量">
+      <option name="closed" value="true" />
+      <created>1778427527530</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1778427527530</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -350,7 +394,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -365,6 +421,8 @@
     <MESSAGE value="2026/2/18 进一步优化代码，引入数据库连接池；简化了冗余代码；完善了阈值配置" />
     <MESSAGE value="2026/2/25 删除部分冗余代码" />
     <MESSAGE value="2026/4/4 更新文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="2026/4/4 更新文档" />
+    <MESSAGE value="采用预加载数据减少数据库IO；精简了代码；完善了计算质量标签时的内容独特性维度计算" />
+    <MESSAGE value="缩减代码量" />
+    <option name="LAST_COMMIT_MESSAGE" value="缩减代码量" />
   </component>
 </project>
