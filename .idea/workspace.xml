@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b0d85de-7887-4373-ac9b-cbc008e912e5" name="Changes" comment="采用预加载数据减少数据库IO；精简了代码；完善了计算质量标签时的内容独特性维度计算">
+    <list default="true" id="7b0d85de-7887-4373-ac9b-cbc008e912e5" name="Changes" comment="缩减代码量">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/docs/备忘录.md" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/docs/备忘录.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm/interestTag.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/interestTag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm/qualityTag.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/qualityTag.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm/similarUser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/similarUser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm/uniqueness.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/uniqueness.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/wordHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/wordHandler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +64,7 @@
     &quot;Python.llmClient.executor&quot;: &quot;Run&quot;,
     &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main3.executor&quot;: &quot;Run&quot;,
     &quot;Python.printStructure (1).executor&quot;: &quot;Run&quot;,
     &quot;Python.printStructure.executor&quot;: &quot;Run&quot;,
     &quot;Python.print_project_structure (1).executor&quot;: &quot;Run&quot;,
@@ -114,7 +109,7 @@
       <recent name="E:\Program files\python-projects\recommendation-algorithm\src\algorithm-module" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (1)">
+  <component name="RunManager" selected="Python.main3">
     <configuration name="llmClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="algorithm-engine" />
       <option name="ENV_FILES" value="" />
@@ -167,6 +162,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="1" value="sk-6b26dc4ab1204cf2856c7ce2a6256a44" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -174,7 +170,30 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\Program files\python-projects\recommendation-algorithm\src\main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../recommendation-algorithm/src/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="algorithm-engine" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DASHSCOPE_API_KEY" value="sk-6b26dc4ab1204cf2856c7ce2a6256a44" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -252,16 +271,17 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.llmClient" />
       <item itemvalue="Python.main (1)" />
+      <item itemvalue="Python.main3" />
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.printStructure" />
       <item itemvalue="Python.testVectorModel" />
       <item itemvalue="Python.vectorization" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.main3" />
         <item itemvalue="Python.vectorization" />
         <item itemvalue="Python.llmClient" />
         <item itemvalue="Python.testVectorModel" />
@@ -358,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777197944237</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="缩减代码量">
+      <option name="closed" value="true" />
+      <created>1778427527530</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1778427527530</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -394,6 +422,7 @@
     <MESSAGE value="2026/2/25 删除部分冗余代码" />
     <MESSAGE value="2026/4/4 更新文档" />
     <MESSAGE value="采用预加载数据减少数据库IO；精简了代码；完善了计算质量标签时的内容独特性维度计算" />
-    <option name="LAST_COMMIT_MESSAGE" value="采用预加载数据减少数据库IO；精简了代码；完善了计算质量标签时的内容独特性维度计算" />
+    <MESSAGE value="缩减代码量" />
+    <option name="LAST_COMMIT_MESSAGE" value="缩减代码量" />
   </component>
 </project>
