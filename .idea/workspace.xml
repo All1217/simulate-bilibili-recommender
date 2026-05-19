@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b0d85de-7887-4373-ac9b-cbc008e912e5" name="Changes" comment="缩减代码量">
+      <change afterPath="$PROJECT_DIR$/test/getAverageScoreByUid.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/getAverageScoreBytable.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/insertDanmu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/professionalWords.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/professionalWords.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/sql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/sql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithm/qualityAnalyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/qualityAnalyzer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/application.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,49 +59,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.behaviorAnalyzer.executor&quot;: &quot;Run&quot;,
-    &quot;Python.behaviorTag.executor&quot;: &quot;Run&quot;,
-    &quot;Python.danmuScore.executor&quot;: &quot;Run&quot;,
-    &quot;Python.database.executor&quot;: &quot;Run&quot;,
-    &quot;Python.filterUserIdsByTags.executor&quot;: &quot;Run&quot;,
-    &quot;Python.interestTag.executor&quot;: &quot;Run&quot;,
-    &quot;Python.jsonHandler.executor&quot;: &quot;Run&quot;,
-    &quot;Python.llmClient.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.printStructure (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.printStructure.executor&quot;: &quot;Run&quot;,
-    &quot;Python.print_project_structure (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.print_project_structure.executor&quot;: &quot;Run&quot;,
-    &quot;Python.profileBuilder.executor&quot;: &quot;Run&quot;,
-    &quot;Python.qualityAnalyzer.executor&quot;: &quot;Run&quot;,
-    &quot;Python.qualityTag.executor&quot;: &quot;Run&quot;,
-    &quot;Python.similarUser.executor&quot;: &quot;Run&quot;,
-    &quot;Python.stopwords.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.testElasticsearch.executor&quot;: &quot;Run&quot;,
-    &quot;Python.testElasticsearchVector.executor&quot;: &quot;Run&quot;,
-    &quot;Python.testRedis.executor&quot;: &quot;Run&quot;,
-    &quot;Python.testRedisVector.executor&quot;: &quot;Run&quot;,
-    &quot;Python.testScanDanmu.executor&quot;: &quot;Run&quot;,
-    &quot;Python.testVectorModel.executor&quot;: &quot;Run&quot;,
-    &quot;Python.vectorization.executor&quot;: &quot;Run&quot;,
-    &quot;Python.wordHandler.executor&quot;: &quot;Run&quot;,
-    &quot;Python.word_segmentation.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Program files/python-projects/AniLink-AlgorithmEngine/Assets&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.behaviorAnalyzer.executor": "Run",
+    "Python.behaviorTag.executor": "Run",
+    "Python.danmuScore.executor": "Run",
+    "Python.database.executor": "Run",
+    "Python.filterUserIdsByTags.executor": "Run",
+    "Python.getAverageScoreByUid.executor": "Run",
+    "Python.getAverageScoreBytable.executor": "Run",
+    "Python.insertDanmu.executor": "Run",
+    "Python.interestTag.executor": "Run",
+    "Python.jsonHandler.executor": "Run",
+    "Python.llmClient.executor": "Run",
+    "Python.main (1).executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.main3.executor": "Debug",
+    "Python.printStructure (1).executor": "Run",
+    "Python.printStructure.executor": "Run",
+    "Python.print_project_structure (1).executor": "Run",
+    "Python.print_project_structure.executor": "Run",
+    "Python.profileBuilder.executor": "Run",
+    "Python.qualityAnalyzer.executor": "Run",
+    "Python.qualityTag.executor": "Run",
+    "Python.similarUser.executor": "Run",
+    "Python.stopwords.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.testElasticsearch.executor": "Run",
+    "Python.testElasticsearchVector.executor": "Run",
+    "Python.testRedis.executor": "Run",
+    "Python.testRedisVector.executor": "Run",
+    "Python.testScanDanmu.executor": "Run",
+    "Python.testVectorModel.executor": "Run",
+    "Python.vectorization.executor": "Run",
+    "Python.wordHandler.executor": "Run",
+    "Python.word_segmentation.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "E:/Program files/python-projects/AniLink-AlgorithmEngine/Assets",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Program files\python-projects\AniLink-AlgorithmEngine\Assets" />
@@ -110,21 +120,20 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.main3">
-    <configuration name="llmClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="getAverageScoreByUid" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="algorithm-engine" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DASHSCOPE_API_KEY" value="sk-6b26dc4ab1204cf2856c7ce2a6256a44" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/util" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/util/llmClient.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/getAverageScoreByUid.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -133,7 +142,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="getAverageScoreBytable" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="algorithm-engine" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -142,11 +151,33 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/getAverageScoreBytable.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="insertDanmu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="algorithm-engine" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/insertDanmu.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -202,51 +233,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="printStructure" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="algorithm-engine" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/printStructure.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="testVectorModel" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="algorithm-engine" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DASHSCOPE_API_KEY" value="sk-6b26dc4ab1204cf2856c7ce2a6256a44" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/testVectorModel.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="vectorization" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="algorithm-engine" />
       <option name="ENV_FILES" value="" />
@@ -271,21 +257,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.llmClient" />
-      <item itemvalue="Python.main (1)" />
-      <item itemvalue="Python.main3" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.printStructure" />
-      <item itemvalue="Python.testVectorModel" />
+      <item itemvalue="Python.getAverageScoreByUid" />
+      <item itemvalue="Python.getAverageScoreBytable" />
+      <item itemvalue="Python.insertDanmu" />
+      <item itemvalue="Python.main3" />
       <item itemvalue="Python.vectorization" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.getAverageScoreBytable" />
+        <item itemvalue="Python.getAverageScoreByUid" />
         <item itemvalue="Python.main3" />
+        <item itemvalue="Python.insertDanmu" />
         <item itemvalue="Python.vectorization" />
-        <item itemvalue="Python.llmClient" />
-        <item itemvalue="Python.testVectorModel" />
-        <item itemvalue="Python.printStructure" />
       </list>
     </recent_temporary>
   </component>

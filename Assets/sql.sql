@@ -123,3 +123,22 @@ create table user_video
 )
     comment '用户视频关联表';
 
+-- auto-generated definition
+create table sub_danmu
+(
+    id          int auto_increment comment '弹幕ID'
+        primary key,
+    vid         bigint unsigned              not null comment '视频ID',
+    uid         bigint unsigned              not null comment '用户ID',
+    content     varchar(100)                 not null comment '弹幕内容',
+    fontsize    tinyint    default 25        not null comment '字体大小',
+    mode        tinyint    default 1         not null comment '弹幕模式 0滚动 1顶部 2底部',
+    color       varchar(7) default '#FFFFFF' not null comment '弹幕颜色 6位十六进制标准格式',
+    time_point  double                       not null comment '弹幕所在视频的时间点',
+    status      tinyint    default 1         not null comment '弹幕状态 1默认过审 2被举报审核中 3删除',
+    create_date datetime                     not null comment '发送弹幕的日期时间',
+    constraint id
+        unique (id)
+)
+    comment '弹幕表-测试表';
+

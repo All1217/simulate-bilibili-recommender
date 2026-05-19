@@ -13,8 +13,8 @@ def startAnalyze():
     暂时先返回默认值
     """
     default = {
-        # 高质量弹幕：平均分 ≥ 0.7
-        "high_quality_threshold": 0.7,
+        # 高质量弹幕：平均分 ≥ 0.5
+        "high_quality_threshold": 0.5,
         # 低质量弹幕：平均分 ≤ 0.3
         "low_quality_threshold": 0.3,
         # 干货贡献者：专业词汇比例 ≥ 20%
