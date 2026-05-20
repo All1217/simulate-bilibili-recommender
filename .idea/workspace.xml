@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b0d85de-7887-4373-ac9b-cbc008e912e5" name="Changes" comment="缩减代码量">
-      <change afterPath="$PROJECT_DIR$/test/getAverageScoreByUid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/getAverageScoreBytable.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/insertDanmu.py" afterDir="false" />
+    <list default="true" id="7b0d85de-7887-4373-ac9b-cbc008e912e5" name="Changes" comment="根据论文进行少量更新">
+      <change afterPath="$PROJECT_DIR$/Assets/qualityAnalysis.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/professionalWords.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/professionalWords.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/sql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/sql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/qualityThreshold.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/qualityThreshold.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algorithm/qualityAnalyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/qualityAnalyzer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithm/qualityTag.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/qualityTag.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/redisConstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/redisConstants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/profileBuilder.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/profileBuilder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/scheduledJobs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/scheduledJobs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/getAverageScoreByUid.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/getAverageScoreByVid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/getAverageScoreBytable.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/getAverageScoreBytable.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +70,7 @@
     "Python.database.executor": "Run",
     "Python.filterUserIdsByTags.executor": "Run",
     "Python.getAverageScoreByUid.executor": "Run",
+    "Python.getAverageScoreByVid (1).executor": "Run",
     "Python.getAverageScoreBytable.executor": "Run",
     "Python.insertDanmu.executor": "Run",
     "Python.interestTag.executor": "Run",
@@ -74,7 +78,7 @@
     "Python.llmClient.executor": "Run",
     "Python.main (1).executor": "Run",
     "Python.main.executor": "Run",
-    "Python.main3.executor": "Debug",
+    "Python.main3.executor": "Run",
     "Python.printStructure (1).executor": "Run",
     "Python.printStructure.executor": "Run",
     "Python.print_project_structure (1).executor": "Run",
@@ -119,8 +123,8 @@
       <recent name="E:\Program files\python-projects\recommendation-algorithm\src\algorithm-module" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main3">
-    <configuration name="getAverageScoreByUid" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.getAverageScoreBytable">
+    <configuration name="getAverageScoreByVid (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="algorithm-engine" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -133,7 +137,29 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/getAverageScoreByUid.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/getAverageScoreByVid.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="getAverageScoreByVid" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="algorithm-engine" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="E:\Program files\python-projects\AniLink-AlgorithmEngine\test\getAverageScoreByVid.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,28 +182,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/getAverageScoreBytable.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="insertDanmu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="algorithm-engine" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/insertDanmu.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -233,21 +237,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="vectorization" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="qualityAnalyzer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="algorithm-engine" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DASHSCOPE_API_KEY" value="sk-6b26dc4ab1204cf2856c7ce2a6256a44" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/algorithm" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/algorithm/vectorization.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/algorithm/qualityAnalyzer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -258,19 +261,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.getAverageScoreByUid" />
+      <item itemvalue="Python.getAverageScoreByVid (1)" />
+      <item itemvalue="Python.qualityAnalyzer" />
+      <item itemvalue="Python.getAverageScoreByVid" />
       <item itemvalue="Python.getAverageScoreBytable" />
-      <item itemvalue="Python.insertDanmu" />
       <item itemvalue="Python.main3" />
-      <item itemvalue="Python.vectorization" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.getAverageScoreBytable" />
-        <item itemvalue="Python.getAverageScoreByUid" />
+        <item itemvalue="Python.getAverageScoreByVid (1)" />
         <item itemvalue="Python.main3" />
-        <item itemvalue="Python.insertDanmu" />
-        <item itemvalue="Python.vectorization" />
+        <item itemvalue="Python.qualityAnalyzer" />
+        <item itemvalue="Python.getAverageScoreByVid" />
       </list>
     </recent_temporary>
   </component>
@@ -371,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778427527530</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="根据论文进行少量更新">
+      <option name="closed" value="true" />
+      <created>1779209676154</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1779209676154</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -408,6 +419,7 @@
     <MESSAGE value="2026/4/4 更新文档" />
     <MESSAGE value="采用预加载数据减少数据库IO；精简了代码；完善了计算质量标签时的内容独特性维度计算" />
     <MESSAGE value="缩减代码量" />
-    <option name="LAST_COMMIT_MESSAGE" value="缩减代码量" />
+    <MESSAGE value="根据论文进行少量更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="根据论文进行少量更新" />
   </component>
 </project>

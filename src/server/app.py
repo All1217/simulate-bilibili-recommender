@@ -11,7 +11,7 @@ from src.util.database import init_pools
 from src.util.profileBuilder import buildOne
 from src.util.rabbitmq import startRabbitmq, stopRabbitmq
 from src.algorithm.similarUser import startSimilar
-from src.util.scheduledJobs import scheduled_job, refreshBehaviorThreshold, refreshTagsVector
+from src.util.scheduledJobs import scheduled_job, refreshBehaviorThreshold, refreshTagsVector, refreshQualityThreshold
 import threading
 import src.config.application as config
 import time
@@ -27,7 +27,8 @@ profile_results = {}
 scheduler = BackgroundScheduler()
 scheduler.add_job(func=scheduled_job, trigger="interval", seconds=config.TASK_GAP)
 scheduler.add_job(func=refreshBehaviorThreshold, trigger="interval", seconds=config.TASK_GAP)
-scheduler.add_job(func=refreshTagsVector, trigger="interval", seconds=120)
+scheduler.add_job(func=refreshQualityThreshold, trigger="interval", seconds=config.TASK_GAP)
+scheduler.add_job(func=refreshTagsVector, trigger="interval", seconds=config.TASK_GAP)
 scheduler.start()
 print("✅ 定时任务调度器已启动")
 
@@ -92,6 +93,7 @@ def buildUserProfileAsync(user_id):
             except Exception as e:
                 profile_results[task_id] = {'status': 'failed', 'error': str(e)}
                 print(f"❌ 异步任务失败 (用户{user_id}): {e}")
+
         # 任务入队
         profile_tasks[task_id] = {'uid': user_id, 'status': 'processing', 'start_time': time.time()}
         thread = threading.Thread(target=background_task)

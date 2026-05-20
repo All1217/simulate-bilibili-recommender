@@ -1,0 +1,41 @@
+{
+  "analyze_time": "2026-05-20 21:46:06",
+  "score_distribution": {
+    "total_danmus": 2063,
+    "min": 0.0,
+    "max": 0.657,
+    "mean": 0.308,
+    "median": 0.29,
+    "percentile_20": 0.17,
+    "percentile_40": 0.25,
+    "percentile_60": 0.41,
+    "percentile_80": 0.45
+  },
+  "interval_distribution": [
+    {
+      "interval": "0-0.2",
+      "danmu_count": 580,
+      "percentage": 28.1
+    },
+    {
+      "interval": "0.2-0.4",
+      "danmu_count": 650,
+      "percentage": 31.5
+    },
+    {
+      "interval": "0.4-0.6",
+      "danmu_count": 822,
+      "percentage": 39.8
+    },
+    {
+      "interval": "0.6-0.8",
+      "danmu_count": 11,
+      "percentage": 0.5
+    },
+    {
+      "interval": "0.8-1.0",
+      "danmu_count": 0,
+      "percentage": 0.0
+    }
+  ]
+}

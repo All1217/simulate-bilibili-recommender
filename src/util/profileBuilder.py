@@ -29,12 +29,11 @@ class UserProfileBuilder:
           - danmu_list:   用户所有弹幕 (id, content, create_date, vid, time_point)
           - danmu_count:  弹幕总数（直接 len）
           - danmu_hours:  每条弹幕的发送小时数列表
-          - vid_mc_map:   弹幕涉及视频的 vid -> mc_id 映射
           - user_video_rows: 用户观看视频记录（含 video.tags）
         """
         preload = {}
 
-        # 1. 加载用户所有弹幕（一次查询覆盖三个模块的全部 danmu 需求）
+        # 1. 加载用户所有弹幕
         with mysql_cursor() as cursor:
             cursor.execute("""
                 SELECT id, content, create_date, vid, time_point
@@ -63,18 +62,24 @@ class UserProfileBuilder:
         preload['danmu_count'] = len(danmu_list)
         preload['danmu_hours'] = danmu_hours
 
-        # 2. 加载弹幕涉及视频的 mc_id（替代逐条查询 getVideoContext）
+        # 2. 加载视频标题和标签（供内容相关性计算使用）
         if vid_set:
             with mysql_cursor() as cursor:
                 placeholders = ','.join(['%s'] * len(vid_set))
                 cursor.execute(
-                    f"SELECT vid, mc_id FROM video WHERE vid IN ({placeholders})",
+                    f"SELECT vid, title, tags FROM video WHERE vid IN ({placeholders})",
                     tuple(vid_set)
                 )
-                vid_rows = cursor.fetchall()
-            preload['vid_mc_map'] = {row['vid']: row['mc_id'] for row in vid_rows}
+                vid_info_rows = cursor.fetchall()
+            preload['vid_info_map'] = {
+                row['vid']: {
+                    'title': row['title'] or '',
+                    'tags': row['tags'] or ''
+                }
+                for row in vid_info_rows
+            }
         else:
-            preload['vid_mc_map'] = {}
+            preload['vid_info_map'] = {}
 
         # 3. 加载用户观看视频记录（供 interestTag 使用）
         with mysql_cursor() as cursor:
@@ -85,7 +90,6 @@ class UserProfileBuilder:
                 WHERE uv.uid = %s AND v.status = 1
             """, (uid,))
             preload['user_video_rows'] = cursor.fetchall()
-
         return preload
 
     # ==================== 单个画像构建 ====================

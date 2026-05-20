@@ -5,7 +5,8 @@
 # @Project : algorithm-engine
 
 from src.util.jsonHandler import loadJson
-from src.util.database import mysql_cursor
+from src.util.database import get_redis_client
+from src.common.redisConstants import QUALITY_THRESHOLD_KEY
 from src.util.wordHandler import get_segmenter
 from src.algorithm.uniqueness import calUniquenessScores
 import numpy as np
@@ -13,7 +14,45 @@ import jieba.analyse
 from collections import defaultdict
 
 PROFESSIONAL_WORDS = loadJson('professionalWords.json')
-THRESHOLDS = loadJson('qualityThreshold.json')
+
+
+def loadThreshold():
+    """三级阈值加载：Redis → JSON → 默认值"""
+    try:
+        redis_client = get_redis_client()
+        temp = redis_client.hgetall(QUALITY_THRESHOLD_KEY)
+        if temp:
+            return {
+                'high_quality_threshold': float(temp.get('high_quality_threshold', 0.5)),
+                'low_quality_threshold': float(temp.get('low_quality_threshold', 0.3)),
+                'professional_ratio_threshold': float(temp.get('professional_ratio_threshold', 0.2)),
+                'long_danmaku_threshold': int(temp.get('long_danmaku_threshold', 20)),
+                'short_danmaku_threshold': int(temp.get('short_danmaku_threshold', 5))
+            }
+    except Exception as e:
+        print(f'从Redis获取质量阈值失败: {e}')
+
+    try:
+        config = loadJson('qualityThreshold.json')
+        return {
+            'high_quality_threshold': config.get('high_quality_threshold', 0.5),
+            'low_quality_threshold': config.get('low_quality_threshold', 0.3),
+            'professional_ratio_threshold': config.get('professional_ratio_threshold', 0.2),
+            'long_danmaku_threshold': config.get('long_danmaku_threshold', 20),
+            'short_danmaku_threshold': config.get('short_danmaku_threshold', 5)
+        }
+    except Exception as e:
+        print(f'加载质量阈值失败，使用默认值: {e}')
+        return {
+            'high_quality_threshold': 0.5,
+            'low_quality_threshold': 0.3,
+            'professional_ratio_threshold': 0.2,
+            'long_danmaku_threshold': 20,
+            'short_danmaku_threshold': 5
+        }
+
+
+THRESHOLDS = loadThreshold()
 
 _segmenter = get_segmenter(use_stopwords=True, use_pos_filter=False)
 
@@ -28,7 +67,7 @@ def _countProfessionalWords(words):
     return sum(1 for w in words if w in PROFESSIONAL_WORDS)
 
 
-def calDanmuScore(text, words, video_context, uniqueness_score=None):
+def calDanmuScore(text, words, video_keywords, uniqueness_score=None):
     if not text or not words:
         return 0.0
     if uniqueness_score is None:
@@ -53,69 +92,58 @@ def calDanmuScore(text, words, video_context, uniqueness_score=None):
     score += uniqueness_score * 0.3
 
     # 4. 内容相关性（20%）
-    clean_text = ' '.join(words)
-    keywords = jieba.analyse.extract_tags(clean_text, topK=3)
-    if any(keyword in video_context.current_frame_keywords for keyword in keywords):
-        score += 0.2
+    #    基于 jieba TF-IDF 提取弹幕关键词，与视频标题+标签关键词的交集占比
+    if video_keywords:
+        clean_text = ' '.join(words)
+        danmu_keywords = set(jieba.analyse.extract_tags(clean_text, topK=3))
+        if danmu_keywords:  # Jaccard 系数
+            overlap = danmu_keywords & video_keywords
+            relevance = len(overlap) / len(danmu_keywords)
+            score += relevance * 0.2
 
     return min(score, 1.0)
 
 
 def loadDanmu(uid, preload=None):
-    """加载用户的所有弹幕，若传入 preload 则直接使用预加载数据"""
+    """
+    从预加载数据中提取用户弹幕列表，无预加载时返回空列表（不查库）。
+    """
     if preload and 'danmu_list' in preload:
         return preload['danmu_list']
-
-    with mysql_cursor() as cursor:
-        cursor.execute("""
-            SELECT id, content, create_date, vid, time_point
-            FROM danmu
-            WHERE uid = %s AND status = 1
-            ORDER BY create_date
-        """, (uid,))
-        rows = cursor.fetchall()
-
-    danmakus = []
-    for row in rows:
-        danmakus.append({
-            'id': row['id'],
-            'text': row['content'],
-            'create_date': row['create_date'],
-            'vid': row['vid'],
-            'time_point': row['time_point']
-        })
-    return danmakus
+    return []
 
 
-def getVideoContext(vid, preload=None):
+def getVideoKeywords(vid, preload):
     """
-    获取弹幕所在的视频上下文。
-    preload 中包含 'vid_mc_map' 时直接查表，无需访问数据库。
+    从预加载数据中获取视频标题+标签的关键词集合。
+    若无预加载数据或 vid 不存在，返回空 set。
     """
-    if preload and 'vid_mc_map' in preload:
-        zone = preload['vid_mc_map'].get(vid, None)
-    else:
-        with mysql_cursor() as cursor:
-            cursor.execute("SELECT mc_id FROM video WHERE vid = %s", (vid,))
-            result = cursor.fetchone()
-        zone = result['mc_id'] if result else None
+    if not preload or 'vid_info_map' not in preload:
+        return set()
+    info = preload['vid_info_map'].get(vid)
+    if not info:
+        return set()
 
-    class VideoContext:
-        def __init__(self, zone):
-            self.zone = zone
-            self.current_viewers = 100
-            self.current_frame_keywords = []
+    keywords = set()
+    title = info.get('title', '') or ''
+    tags_str = info.get('tags', '') or ''
 
-        def count_similar(self, text):
-            return 0
-
-    return VideoContext(zone)
+    if title:
+        title_words = preprocessText(title)
+        keywords.update(title_words)
+    if tags_str:
+        for tag in tags_str.split():
+            tag = tag.strip()
+            if tag:
+                keywords.add(tag)
+    return keywords
 
 
 def calQualityStats(uid, preload=None):
     danmakus = loadDanmu(uid, preload)
     if not danmakus:
         return [], {}
+
     # ===== 分词并按 vid 分组 =====
     vid_groups = defaultdict(list)
     for idx, danmaku in enumerate(danmakus):
@@ -124,6 +152,7 @@ def calQualityStats(uid, preload=None):
         danmaku['_words'] = words
         danmaku['_clean_text'] = ' '.join(words)
         vid_groups[danmaku['vid']].append(idx)
+
     # ===== 按视频分组计算独特性得分 =====
     uniqueness_map = {}
     for vid, indices in vid_groups.items():
@@ -131,14 +160,12 @@ def calQualityStats(uid, preload=None):
         group_scores = calUniquenessScores(group_texts)
         for i, score in zip(indices, group_scores):
             uniqueness_map[i] = score
+
     # ===== 逐条评分与统计 =====
     scores = []
     stats = {
         'total_count': len(danmakus),
-        'high_quality': 0,
-        'low_quality': 0,
         'professional_count': 0,
-        'meme_count': 0,
         'long_count': 0,
         'short_count': 0,
         'total_length': 0,
@@ -148,17 +175,14 @@ def calQualityStats(uid, preload=None):
     for idx, danmaku in enumerate(danmakus):
         text = danmaku['text']
         words = danmaku['_words']
-        context = getVideoContext(danmaku['vid'], preload)
+        vid = danmaku['vid']
+
+        video_keywords = getVideoKeywords(vid, preload)
         uniqueness_score = uniqueness_map.get(idx, 1.0)
 
-        score = calDanmuScore(text, words, context, uniqueness_score)
+        score = calDanmuScore(text, words, video_keywords, uniqueness_score)
         scores.append(score)
         stats['scores'].append(score)
-
-        if score >= THRESHOLDS['high_quality_threshold']:
-            stats['high_quality'] += 1
-        elif score <= THRESHOLDS['low_quality_threshold']:
-            stats['low_quality'] += 1
 
         if any(w in PROFESSIONAL_WORDS for w in words):
             stats['professional_count'] += 1
@@ -177,21 +201,17 @@ def calQualityTags(uid, preload=None):
     scores, stats = calQualityStats(uid, preload)
     if not scores:
         return {}
-
     tags = {}
     total = stats['total_count']
     avg_score = np.mean(scores)
-
     if avg_score >= THRESHOLDS['high_quality_threshold']:
         tags['高质量弹幕贡献者'] = round(avg_score, 2)
     elif avg_score <= THRESHOLDS['low_quality_threshold']:
         tags['低质量弹幕倾向'] = round(avg_score, 2)
-
     if total > 0:
         professional_ratio = stats['professional_count'] / total
         if professional_ratio >= THRESHOLDS['professional_ratio_threshold']:
             tags['干货贡献者'] = round(professional_ratio, 2)
-
     if total > 0:
         long_ratio = stats['long_count'] / total
         short_ratio = stats['short_count'] / total
@@ -199,15 +219,6 @@ def calQualityTags(uid, preload=None):
             tags['长文弹幕偏好'] = round(long_ratio, 2)
         elif short_ratio > 0.5:
             tags['短平快弹幕'] = round(short_ratio, 2)
-
-    if total >= THRESHOLDS['stable_contributor_min']:
-        std_dev = np.std(scores)
-        stability = 1.0 - min(std_dev, 1.0)
-        tags['稳定贡献者'] = round(stability, 2)
-
-    if stats['high_quality'] >= 5:
-        tags['精品弹幕制造机'] = stats['high_quality']
-
     return tags
 
 

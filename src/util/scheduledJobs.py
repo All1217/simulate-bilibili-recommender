@@ -7,6 +7,7 @@
 from src.util.database import get_redis_client
 from src.util.spider import Spider
 from src.algorithm.behaviorAnalyzer import recommend
+from src.algorithm.qualityAnalyzer import startQualityAnalyze
 from src.algorithm.vectorization import getTagVectorManager
 import src.config.application as config
 import json
@@ -39,6 +40,12 @@ def scheduled_job():
 def refreshBehaviorThreshold():
     recommend()
     print(f"✅ 推荐的行为标签阈值更新成功！")
+
+
+# 定期更新质量标签阈值
+def refreshQualityThreshold():
+    startQualityAnalyze()
+    print(f"✅ 质量标签阈值更新成功！")
 
 
 # 定期将标签向量化
